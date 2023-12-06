@@ -18,4 +18,9 @@ public class Order {
             throw new IllegalArgumentException("최대 주문 수량은 99개입니다.");
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %d %d", menu.getName(), quantity, menu.getPrice());
+    }
 }

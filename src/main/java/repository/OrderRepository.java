@@ -3,6 +3,7 @@ package repository;
 import domain.Order;
 import domain.Table;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,5 +16,9 @@ public class OrderRepository {
         List<Order> tableOrders = ORDERS.getOrDefault(table, new ArrayList<>());
         tableOrders.add(order);
         ORDERS.put(table, tableOrders);
+    }
+
+    public static List<Order> findOrdersByTable(Table table) {
+        return ORDERS.getOrDefault(table, Collections.emptyList());
     }
 }

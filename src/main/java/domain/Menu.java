@@ -37,6 +37,18 @@ public class Menu {
         );
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     public boolean isSameNumber(int number) {
         return this.number == number;
     }

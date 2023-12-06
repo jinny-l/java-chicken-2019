@@ -2,6 +2,7 @@ package view;
 
 import domain.Command;
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +44,7 @@ public class OutputView {
         String text = tables.stream()
                 .map(table -> String.format(TABLE_FORMAT, table.toString()))
                 .collect(Collectors.joining());
+
         System.out.println(text);
     }
 
@@ -54,6 +56,16 @@ public class OutputView {
         String text = menus.stream()
                 .map(Menu::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
+
         System.out.printf("%n%s%n", text);
+    }
+
+    public static void printOrders(List<Order> orders) {
+        String format = "%n## 주문 내역%n메뉴 수량 금액%n%s%n";
+        String text = orders.stream()
+                .map(Order::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
+
+        System.out.printf(format, text);
     }
 }
