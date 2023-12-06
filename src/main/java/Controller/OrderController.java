@@ -24,6 +24,7 @@ public class OrderController implements Controller {
         Menu menu = readMenu();
         Order order = readMenuQuantitiyAndCreateOrder(menu);
 
+        orderService.order(table, order);
     }
 
     private Table readTable() {

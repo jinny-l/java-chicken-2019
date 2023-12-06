@@ -1,13 +1,19 @@
 package service;
 
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 import java.util.List;
 import java.util.Optional;
 import repository.MenuRepository;
+import repository.OrderRepository;
 import repository.TableRepository;
 
 public class OrderService {
+
+    public void order(Table table, Order order) {
+        OrderRepository.add(table, order);
+    }
 
     public List<Table> findTables() {
         return TableRepository.findAll();
