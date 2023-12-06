@@ -20,7 +20,7 @@ public class PosController implements Controller {
 
         do {
             OutputView.printCommand(Command.values());
-            command = InputView.readCommand();
+            command = readCommand();
 
             if (command == Command.ORDER) {
                 orderController.run();
@@ -31,5 +31,14 @@ public class PosController implements Controller {
             }
 
         } while (command != Command.EXIT);
+    }
+
+    private Command readCommand() {
+        try {
+            return InputView.readCommand();
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return readCommand();
+        }
     }
 }
