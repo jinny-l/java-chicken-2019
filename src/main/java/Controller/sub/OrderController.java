@@ -1,5 +1,6 @@
-package Controller;
+package Controller.sub;
 
+import Controller.Controller;
 import domain.Menu;
 import domain.Order;
 import domain.Table;

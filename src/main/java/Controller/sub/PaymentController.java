@@ -1,5 +1,6 @@
-package Controller;
+package Controller.sub;
 
+import Controller.Controller;
 import domain.Payment;
 import domain.Table;
 import service.OrderService;

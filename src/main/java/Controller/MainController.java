@@ -4,7 +4,7 @@ import domain.Command;
 import view.InputView;
 import view.OutputView;
 
-public class PosController implements Controller {
+public class MainController implements Controller {
 
     @Override
     public void run() {
