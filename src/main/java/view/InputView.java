@@ -20,6 +20,21 @@ public class InputView {
         return readInt();
     }
 
+    public static int readMenuNumber() {
+        System.out.printf("%n## 등록할 메뉴를 선택하세요.%n");
+
+        return readInt();
+    }
+
+    public static int readMenuQuantity() {
+        System.out.printf("%n## 메뉴의 수량을 입력하세요.%n");
+        int input = readInt();
+
+        System.out.println();
+
+        return input;
+    }
+
     private static int readInt() {
         try {
             return Integer.parseInt(readLine());

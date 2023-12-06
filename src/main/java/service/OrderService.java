@@ -26,4 +26,15 @@ public class OrderService {
     public List<Menu> findMenus() {
         return MenuRepository.findAll();
     }
+
+    public Menu findMenusByNumber(int number) {
+        Optional<Menu> menu = MenuRepository.findByNumber(number);
+
+        if (menu.isEmpty()) {
+            throw new IllegalArgumentException("없는 메뉴 번호입니다.");
+        }
+
+        return menu.get();
+    }
+
 }

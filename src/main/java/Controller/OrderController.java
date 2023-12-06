@@ -1,5 +1,7 @@
 package Controller;
 
+import domain.Menu;
+import domain.Order;
 import domain.Table;
 import service.OrderService;
 import view.InputView;
@@ -19,6 +21,8 @@ public class OrderController implements Controller {
         Table table = readTable();
 
         OutputView.printMenus(orderService.findMenus());
+        Menu menu = readMenu();
+        Order order = readMenuQuantitiyAndCreateOrder(menu);
 
     }
 
@@ -30,6 +34,28 @@ public class OrderController implements Controller {
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             return readTable();
+        }
+    }
+
+    private Menu readMenu() {
+        try {
+            int menuNumber = InputView.readMenuNumber();
+            return orderService.findMenusByNumber(menuNumber);
+
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return readMenu();
+        }
+    }
+
+    private Order readMenuQuantitiyAndCreateOrder(Menu menu) {
+        try {
+            int menuQuantity = InputView.readMenuQuantity();
+            return new Order(menu, menuQuantity);
+
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return readMenuQuantitiyAndCreateOrder(menu);
         }
     }
 }

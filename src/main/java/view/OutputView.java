@@ -54,6 +54,6 @@ public class OutputView {
         String text = menus.stream()
                 .map(Menu::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
-        System.out.printf("%n%s%n%n", text);
+        System.out.printf("%n%s%n", text);
     }
 }

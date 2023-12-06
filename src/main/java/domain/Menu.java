@@ -37,6 +37,10 @@ public class Menu {
         );
     }
 
+    public boolean isSameNumber(int number) {
+        return this.number == number;
+    }
+
     @Override
     public String toString() {
         return String.format("%s %d - %s : %d원", category, number, name, price);
