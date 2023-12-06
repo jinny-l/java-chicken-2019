@@ -21,6 +21,7 @@ public class PaymentService {
         double paymentDiscountAmount = payment.calculateDiscountValue(ordersValue);
 
         OrderRepository.removeBy(table);
+        table.pay();
 
         return (int) (ordersValue - chickenDiscountAmount - paymentDiscountAmount);
     }

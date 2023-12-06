@@ -13,6 +13,7 @@ public class OutputView {
     public static final String ERROR_MESSAGE_PREFIX = "[ERROR] ";
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
+    private static final String BOTTOM_LINE_HAS_ORDER = "└ # ┘";
     private static final String BOTTOM_LINE = "└ ─ ┘";
 
     private OutputView() {
@@ -37,7 +38,7 @@ public class OutputView {
         System.out.printf("%n## 테이블 목록%n");
         printLines(TOP_LINE, tablesSize);
         printTableNumbers(tables);
-        printLines(BOTTOM_LINE, tablesSize);
+        printBottomLines(tables);
     }
 
     private static void printTableNumbers(List<Table> tables) {
@@ -45,6 +46,18 @@ public class OutputView {
                 .map(table -> String.format(TABLE_FORMAT, table.toString()))
                 .collect(Collectors.joining());
 
+        System.out.println(text);
+    }
+
+    private static void printBottomLines(List<Table> tables) {
+        String text = tables.stream()
+                .map(table -> {
+                    if (table.hasPeople()) {
+                        return BOTTOM_LINE_HAS_ORDER;
+                    }
+                    return BOTTOM_LINE;
+                })
+                .collect(Collectors.joining());
         System.out.println(text);
     }
 

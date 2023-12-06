@@ -12,6 +12,7 @@ import repository.TableRepository;
 public class OrderService {
 
     public void order(Table table, Order order) {
+        table.order();
         OrderRepository.add(table, order);
     }
 
