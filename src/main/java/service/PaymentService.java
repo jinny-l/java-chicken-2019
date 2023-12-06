@@ -8,6 +8,15 @@ import repository.OrderRepository;
 
 public class PaymentService {
 
+    private static final PaymentService PAYMENT_SERVICE = new PaymentService();
+
+    private PaymentService() {
+    }
+
+    public static PaymentService getInstance() {
+        return PAYMENT_SERVICE;
+    }
+
     public List<Order> findOrdersByTable(Table table) {
         return OrderRepository.findOrdersByTable(table);
         // 주문 내역이 없을 때 처리

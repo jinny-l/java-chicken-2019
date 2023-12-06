@@ -13,9 +13,9 @@ public class PaymentController implements Controller {
     private final OrderService orderService;
     private final PaymentService paymentService;
 
-    public PaymentController() {
-        this.orderService = new OrderService();
-        this.paymentService = new PaymentService();
+    public PaymentController(OrderService orderService, PaymentService paymentService) {
+        this.orderService = orderService;
+        this.paymentService = paymentService;
     }
 
     @Override

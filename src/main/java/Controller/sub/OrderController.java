@@ -12,8 +12,8 @@ public class OrderController implements Controller {
 
     private final OrderService orderService;
 
-    public OrderController() {
-        this.orderService = new OrderService();
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @Override

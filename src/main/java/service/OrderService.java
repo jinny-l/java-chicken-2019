@@ -11,6 +11,15 @@ import repository.TableRepository;
 
 public class OrderService {
 
+    private static final OrderService ORDER_SERVICE = new OrderService();
+
+    private OrderService() {
+    }
+
+    public static OrderService getInstance() {
+        return ORDER_SERVICE;
+    }
+
     public void order(Table table, Order order) {
         table.order();
         OrderRepository.add(table, order);
