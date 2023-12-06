@@ -13,7 +13,7 @@ public enum Payment {
     CASH(
             2,
             "현금",
-            ordersValue -> ordersValue * 0.5
+            ordersValue -> ordersValue * 0.05
     );
 
     private final int value;

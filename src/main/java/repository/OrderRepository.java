@@ -25,9 +25,10 @@ public class OrderRepository {
     public static int countChickenOrdersBy(Table table) {
         List<Order> orders = findOrdersByTable(table);
 
-        return (int) orders.stream()
+        return orders.stream()
                 .filter(Order::isChicken)
-                .count();
+                .mapToInt(Order::getQuantity)
+                .sum();
     }
 
     public static int sumMenuPriceBy(Table table) {

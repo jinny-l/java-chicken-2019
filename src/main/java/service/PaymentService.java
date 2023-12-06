@@ -27,7 +27,7 @@ public class PaymentService {
         int chickenDiscountAmount = chickenMenuCount / 10 * 10000;
 
         int ordersValue = OrderRepository.sumMenuPriceBy(table);
-        double paymentDiscountAmount = payment.calculateDiscountValue(ordersValue);
+        double paymentDiscountAmount = payment.calculateDiscountValue(ordersValue - chickenDiscountAmount);
 
         OrderRepository.removeBy(table);
         table.pay();
