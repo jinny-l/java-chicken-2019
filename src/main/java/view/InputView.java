@@ -14,6 +14,20 @@ public class InputView {
         return Command.from(Integer.parseInt(readLine()));
     }
 
+    public static int readTableNumber() {
+        System.out.printf("%n## 테이블을 선택하세요.%n");
+
+        return readInt();
+    }
+
+    private static int readInt() {
+        try {
+            return Integer.parseInt(readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("테이블 번호는 숫자만 입력 가능합니다.");
+        }
+    }
+
     private static String readLine() {
         String input = Console.readLine().strip();
         validateBlank(input);
