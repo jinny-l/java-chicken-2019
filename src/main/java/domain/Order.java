@@ -23,6 +23,10 @@ public class Order {
         return menu.getPrice();
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public boolean isChicken() {
         return menu.getCategory() == Category.CHICKEN;
     }

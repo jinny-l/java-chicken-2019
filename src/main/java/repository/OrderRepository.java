@@ -34,7 +34,7 @@ public class OrderRepository {
         List<Order> orders = findOrdersByTable(table);
 
         return orders.stream()
-                .mapToInt(Order::getValue)
+                .mapToInt(order -> order.getValue() * order.getQuantity())
                 .sum();
     }
 
