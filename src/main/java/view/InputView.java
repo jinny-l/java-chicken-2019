@@ -2,6 +2,8 @@ package view;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.Command;
+import domain.Payment;
+import domain.Table;
 
 public class InputView {
 
@@ -33,6 +35,13 @@ public class InputView {
         System.out.println();
 
         return input;
+    }
+
+    public static Payment readPayment(Table table) {
+        System.out.printf("## %s번 테이블의 결제를 진행합니다.%n", table.toString());
+        System.out.println("## 신용 카드는 1번, 현금은 2번");
+
+        return Payment.from(readInt());
     }
 
     private static int readInt() {

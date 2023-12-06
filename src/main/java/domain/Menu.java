@@ -45,6 +45,10 @@ public class Menu {
         return name;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     public int getPrice() {
         return price;
     }

@@ -19,6 +19,14 @@ public class Order {
         }
     }
 
+    public int getValue() {
+        return menu.getPrice();
+    }
+
+    public boolean isChicken() {
+        return menu.getCategory() == Category.CHICKEN;
+    }
+
     @Override
     public String toString() {
         return String.format("%s %d %d", menu.getName(), quantity, menu.getPrice());

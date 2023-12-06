@@ -61,11 +61,15 @@ public class OutputView {
     }
 
     public static void printOrders(List<Order> orders) {
-        String format = "%n## 주문 내역%n메뉴 수량 금액%n%s%n";
+        String format = "%n## 주문 내역%n메뉴 수량 금액%n%s%n%n";
         String text = orders.stream()
                 .map(Order::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
 
         System.out.printf(format, text);
+    }
+
+    public static void printOrderValue(int value) {
+        System.out.printf("%n## 최종 결제할 금액%n%d원%n%n", value);
     }
 }

@@ -1,5 +1,6 @@
 package Controller;
 
+import domain.Payment;
 import domain.Table;
 import service.OrderService;
 import service.PaymentService;
@@ -18,10 +19,13 @@ public class PaymentController implements Controller {
 
     @Override
     public void run() {
-        Table table = readTable();
         OutputView.printTables(orderService.findTables());
+        Table table = readTable();
 
         OutputView.printOrders(paymentService.findOrdersByTable(table));
+
+        Payment payment = readPayment(table);
+        OutputView.printOrderValue(paymentService.pay(table, payment));
     }
 
     private Table readTable() {
@@ -32,6 +36,16 @@ public class PaymentController implements Controller {
         } catch (IllegalArgumentException e) {
             OutputView.printError(e);
             return readTable();
+        }
+    }
+
+    private Payment readPayment(Table table) {
+        try {
+            return InputView.readPayment(table);
+
+        } catch (IllegalArgumentException e) {
+            OutputView.printError(e);
+            return readPayment(table);
         }
     }
 }
