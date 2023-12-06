@@ -16,8 +16,9 @@ public class OrderController implements Controller {
     @Override
     public void run() {
         OutputView.printTables(orderService.findTables());
-
         Table table = readTable();
+
+        OutputView.printMenus(orderService.findMenus());
 
     }
 

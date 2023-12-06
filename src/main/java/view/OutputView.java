@@ -1,6 +1,7 @@
 package view;
 
 import domain.Command;
+import domain.Menu;
 import domain.Table;
 import java.util.Arrays;
 import java.util.List;
@@ -47,5 +48,12 @@ public class OutputView {
 
     private static void printLines(String line, int count) {
         System.out.println(line.repeat(count));
+    }
+
+    public static void printMenus(List<Menu> menus) {
+        String text = menus.stream()
+                .map(Menu::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
+        System.out.printf("%n%s%n%n", text);
     }
 }

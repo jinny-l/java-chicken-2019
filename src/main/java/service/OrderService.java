@@ -1,8 +1,10 @@
 package service;
 
+import domain.Menu;
 import domain.Table;
 import java.util.List;
 import java.util.Optional;
+import repository.MenuRepository;
 import repository.TableRepository;
 
 public class OrderService {
@@ -19,5 +21,9 @@ public class OrderService {
         }
 
         return table.get();
+    }
+
+    public List<Menu> findMenus() {
+        return MenuRepository.findAll();
     }
 }
